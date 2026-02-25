@@ -35,7 +35,7 @@
 //--------------------------------------------------------------------------------
 // no timescale needed
 
-module ACIA #(parameter XTLI_FREQ = 1_843_200)
+module acia #(parameter XTLI_FREQ = 1_843_200)
 (
     input  wire       RESET,
     input  wire       PHI2,
@@ -74,7 +74,7 @@ module ACIA #(parameter XTLI_FREQ = 1_843_200)
   reg        R_DTR = 1'b0;
   reg        R_RCS = 1'b0;
   
-  ACIA_RX C_RX(
+  acia_rx C_RX(
     .RESET(RESET),
     .BCLK(BCLK),
     .PHI2(PHI2),
@@ -89,7 +89,7 @@ module ACIA #(parameter XTLI_FREQ = 1_843_200)
     .R_PME(R_PME),
     .R_SBN(R_SBN));
 
-  ACIA_TX C_TX(
+  acia_tx C_TX(
     .RESET(RESET),
     .BCLK(BCLK),
     .PHI2(PHI2),
@@ -102,7 +102,7 @@ module ACIA #(parameter XTLI_FREQ = 1_843_200)
     .TXFULL(TXFULL),
     .R_SBN(R_SBN));
 
-  ACIA_BRGEN #(
+  acia_brgen #(
       .XTLI_FREQ(XTLI_FREQ)
     ) C_BRGEN(
     .RESET(RESET),

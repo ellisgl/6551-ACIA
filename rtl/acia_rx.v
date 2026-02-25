@@ -23,7 +23,7 @@
 
 // no timescale needed
 
-module ACIA_RX(
+module acia_rx (
     input  wire       RESET,
     input  wire       PHI2,
     input  wire       BCLK,

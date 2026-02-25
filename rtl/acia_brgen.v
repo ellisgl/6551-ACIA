@@ -23,7 +23,7 @@
 
 // no timescale needed
 
-module ACIA_BRGEN #(parameter XTLI_FREQ = 1_843_200)
+module acia_brgen #(parameter XTLI_FREQ = 1_843_200)
 (
     input  wire       RESET,
     input  wire       XTLI,

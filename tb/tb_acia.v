@@ -3,7 +3,7 @@
 
 `timescale 1ns/1ps
 
-module tb_ACIA;
+module tb_acia;
     // Parameters
     parameter XTLI_FREQ = 1_843_200;
 
@@ -24,7 +24,7 @@ module tb_ACIA;
     wire IRQn;
 
     // Instantiate the ACIA
-    ACIA #(.XTLI_FREQ(XTLI_FREQ)) dut (
+    acia #(.XTLI_FREQ(XTLI_FREQ)) dut (
         .RESET(RESET),
         .PHI2(PHI2),
         .CS(CS),
@@ -88,8 +88,8 @@ module tb_ACIA;
 
     // Monitor outputs
     initial begin
-        $dumpfile("tb_ACIA.vcd");
-        $dumpvars(0, tb_ACIA);
+        $dumpfile("tb_acia.vcd");
+        $dumpvars(0, tb_acia);
         $display("Time\tRESET\tCS\tRWN\tRS\tDATAIN\tDATAOUT\tRTSB\tDTRB\tTXD\tIRQn");
         $monitor("%0t\t%b\t%b\t%b\t%02b\t%02x\t%02x\t%b\t%b\t%b\t%b",
             $time, RESET, CS, RWN, RS, DATAIN, DATAOUT, RTSB, DTRB, TXD, IRQn);
